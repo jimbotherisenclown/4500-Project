@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 16edda429dbd43342abd6e5e13733307
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - testText: {fileID: 5719190055551099835, guid: 437dd4575a1b07f41a9337f3b6d7c36b, type: 3}
+  - drawTool: {instanceID: 0}
+  - myToggleGroup: {instanceID: 0}
+  - myToggle: {instanceID: 0}
+  - DrawToolToggle: {instanceID: 0}
+  - EraserToolToggle: {instanceID: 0}
+  - FillToolToggle: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
