@@ -8,58 +8,49 @@ public class LineScript : MonoBehaviour
     public GameObject currentLine; //This is the Unity object that holds the line that is currently being drawn
     public LineRenderer lineRenderer; //Holds the Unity line renderer component needed to render the line in currentLine
     public List<Vector2> brushPositions; //Holds a list of every position for the current line
-    bool lineStart; //Flag that is set to true if the line start position has been set
-    public float timeDelay = -1; //Negative value to be added to the delay; allows for syncing with Time.time
-    public float mouseDelay = 0.01f; //Determines the time before an endpoint can be set
+    private Sorter sorter; //Holds the imported script used to determine sorting layer for all objects
 
     // Start is called before the first frame update
-    void Start()
-    {        
-        lineStart = false;       
+    void Start() {
+        sorter = GameObject.FindObjectOfType(typeof(Sorter)) as Sorter;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //If the mouse button is pressed, create a dot sized line. If the line start has been created, this will not run.
-        if (Input.GetMouseButtonDown(0) && !lineStart) {
-            //Error checking to help calibrate timing for mouseDelay. All Debug.Log items can be removed safely.
-            Debug.Log("Line tool active"); 
-
+        if (Input.GetMouseButtonDown(0)) {
             //Create the start of the line
             CreateLineStart();
-
-            //Declare that the line start point has been set
-            lineStart = true;
-
-            //Update the delay before the next mouse click is allowed.
-            timeDelay = Time.time + mouseDelay;
         }
         
         //If the mouse button is pressed, a line start point has been created, and enough time has passed between clicks, create the endpoint for the line
-        if (Input.GetMouseButtonDown(0) && lineStart && (Time.time >= timeDelay)) {            
-            //
-            CreateEndpoint();
+        if (Input.GetMouseButton(0)) {
+            //Create a variable to hold the current mouse position
+            Vector2 temporaryEndpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            //Error checking to help calibrate timing for mouseDelay.
-            Debug.Log("Line Endpoint");
+            //Set the current mouse position as the temporary endpoint.
+            CreateEndpoint(temporaryEndpoint);
         }
 
         /*TO BE IMPLEMENTED:
         *Check if click is on canvas
         *If click is off canvas, delete line startpoint.
-        *IF TIME ALLOWS, change the script so the line endpoint is dynamically generated to the current mouse position until clicked.
         */
-
     }
 
     //Unity doesn't pass variables between scripts well, so this is copied wholesale from BasicDraw.cs
     void CreateLineStart() {
+        //Increment the sorting layer by one for all drawn objects
+        sorter.setNumberOfItems();
+
         //Create a new line object by using the draw tool prefab with position to be determined later in this function
         currentLine = Instantiate(drawToolPrefab, Vector3.zero, Quaternion.identity);
 
         //Create a line renderer to render the current line
         lineRenderer = currentLine.GetComponent<LineRenderer>();
+
+        //Set the sorting order for the most recent line to the current number of items
+        lineRenderer.sortingOrder = sorter.getNumberOfItems();
 
         //Create a new list of positions the brush has touched the screen
         brushPositions.Clear();
@@ -79,10 +70,7 @@ public class LineScript : MonoBehaviour
     
 
     //Create the endpoint for the line
-    void CreateEndpoint() {
-        //Error checking to help calibrate timing for mouseDelay.
-        Debug.Log("Attempting to create endpoint");
-
+    void CreateEndpoint(Vector2 endpointPosition) {
         //Update the lineRenderer to accomodate a third position for the endpoint
         lineRenderer.positionCount = 3;
 
@@ -90,9 +78,6 @@ public class LineScript : MonoBehaviour
         brushPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         //Add the new endpoint to the lineRenderer list
-        lineRenderer.SetPosition(2, brushPositions[2]);
-
-        //Allows a new line to be placed
-        lineStart = false;
+        lineRenderer.SetPosition(2, endpointPosition);
     }
 }

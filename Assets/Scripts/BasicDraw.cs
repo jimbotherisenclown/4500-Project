@@ -9,9 +9,11 @@ public class BasicDraw : MonoBehaviour
     public GameObject currentLine; //This is the Unity object that holds the line that is currently being drawn
     public LineRenderer lineRenderer; //Holds the Unity line renderer component needed to render the line in currentLine
     public List<Vector2> brushPositions; //Holds a list of every position for the current line
-    public EdgeCollider2D edgeCollider;
-    LineRenderer line;
+    private Sorter sorter; //Holds the imported script used to determine sorting layer for all objects
 
+    void Start() {
+        sorter = GameObject.FindObjectOfType(typeof(Sorter)) as Sorter;
+    }
 
     void Update() {
 
@@ -31,13 +33,17 @@ public class BasicDraw : MonoBehaviour
 
     //Create a dot sized line if the player just taps the brush button
     void CreateLine() {
+        //Increment the sorting layer by one for all drawn objects
+        sorter.setNumberOfItems();
+
         //Create a new line object by using the draw tool prefab with position to be determined later in this function
-        currentLine = Instantiate(drawToolPrefab, Vector3.zero, Quaternion.identity);
+        currentLine = Instantiate(drawToolPrefab, Vector3.zero, Quaternion.identity);        
 
         //Create a line renderer to render the current line
         lineRenderer = currentLine.GetComponent<LineRenderer>();
 
-        
+        //Set the sorting order for the most recent line to the current number of items
+        lineRenderer.sortingOrder = sorter.getNumberOfItems();
 
         //Create a new list of positions the brush has touched the screen
         brushPositions.Clear();
@@ -53,12 +59,6 @@ public class BasicDraw : MonoBehaviour
 
         //Sets the end of the brush stroke using the second item in the list
         lineRenderer.SetPosition(1, brushPositions[1]);
-
-        //edgeCollider = lineRenderer.GetComponent<EdgeCollider2D>();
-
-        //edgeCollider.points = brushPositions.ToArray();
-
-        //Debug.Log(GameObject.Find(brushPositions.regionid.ToString()));
     }
 
     //Adds new points so a line can be created
@@ -66,6 +66,5 @@ public class BasicDraw : MonoBehaviour
         brushPositions.Add(newBrushPosition);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newBrushPosition);
-        edgeCollider.points = brushPositions.ToArray();
     }
 }
