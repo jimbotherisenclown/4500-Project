@@ -814,6 +814,7 @@ MonoBehaviour:
   currentLine: {fileID: 0}
   lineRenderer: {fileID: 0}
   brushPositions: []
+  edgeCollider: {fileID: 0}
 --- !u!4 &635272911
 Transform:
   m_ObjectHideFlags: 0
@@ -1887,6 +1888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1429669976}
+  - component: {fileID: 1429669977}
   m_Layer: 8
   m_Name: SquareScripter
   m_TagString: Untagged
@@ -1908,6 +1910,24 @@ Transform:
   m_Father: {fileID: 246313221}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429669977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429669975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434fd7a7f0a280643920461b41aedee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawToolPrefab: {fileID: 2051388320527656981, guid: d3519b4beaf162241a1909313d105321, type: 3}
+  currentLine: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  brushPositions: []
+  timeDelay: -1
+  mouseDelay: 0.01
 --- !u!1 &1474597060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,6 +2145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1567546179}
+  - component: {fileID: 1567546180}
   m_Layer: 8
   m_Name: LineScripter
   m_TagString: Untagged
@@ -2146,6 +2167,24 @@ Transform:
   m_Father: {fileID: 246313221}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567546180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567546178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638a23206eda6054c998db86fb7df615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawToolPrefab: {fileID: 2051388320527656981, guid: d3519b4beaf162241a1909313d105321, type: 3}
+  currentLine: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  brushPositions: []
+  timeDelay: -0.01
+  mouseDelay: 0.3333
 --- !u!1 &1640064501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640064502}
   - component: {fileID: 1640064503}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Drawing Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2222,8 +2261,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c2401b7753213f345b7c7e5e7309cfe0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7571b93787ca38249b0ac3ff9a068f6d, type: 3}
+  m_Color: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2540,6 +2579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987197981}
   - component: {fileID: 1987197980}
+  - component: {fileID: 1987197982}
   m_Layer: 8
   m_Name: EraseScripter
   m_TagString: Untagged
@@ -2563,6 +2603,7 @@ MonoBehaviour:
   currentLine: {fileID: 0}
   lineRenderer: {fileID: 0}
   brushPositions: []
+  edgeCollider: {fileID: 0}
 --- !u!4 &1987197981
 Transform:
   m_ObjectHideFlags: 0
@@ -2577,6 +2618,18 @@ Transform:
   m_Father: {fileID: 246313221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987197982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987197979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61bd48a740ea5d44a2255938ee38516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2063706454
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Erase : MonoBehaviour {
     public GameObject drawToolPrefab; //Holds the imported Unity prefab that is used as a template for how our line should look
@@ -54,6 +55,10 @@ public class Erase : MonoBehaviour {
         brushPositions.Add(newBrushPosition);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newBrushPosition);
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        Debug.Log("collision detected!");
     }
 
 

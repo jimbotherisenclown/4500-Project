@@ -26,7 +26,7 @@ public class ButtonTester : MonoBehaviour
     //Activates when the eraser tool toggle is pressed.
     public void onEraseButton() {
         setActiveScripter(eraseScripter);
-        testText.text = "ERASING!";
+        //testText.text = "ERASING!";
     }
 
     //Activates when the fill tool toggle is pressed.

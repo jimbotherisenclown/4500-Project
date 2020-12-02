@@ -1,0 +1,3 @@
+Convert from Line Renderer to pixel render (like Photoshop)
+
+OR set order in layer to be created order
