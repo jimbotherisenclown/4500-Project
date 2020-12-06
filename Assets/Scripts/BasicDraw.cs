@@ -10,9 +10,12 @@ public class BasicDraw : MonoBehaviour
     public LineRenderer lineRenderer; //Holds the Unity line renderer component needed to render the line in currentLine
     public List<Vector2> brushPositions; //Holds a list of every position for the current line
     private Sorter sorter; //Holds the imported script used to determine sorting layer for all objects
+    private ColorController colorController; //Holds the imported script used to determine the current color
 
     void Start() {
+        //Initialize the currently running instances of imported scripts
         sorter = GameObject.FindObjectOfType(typeof(Sorter)) as Sorter;
+        colorController = GameObject.FindObjectOfType(typeof(ColorController)) as ColorController;
     }
 
     void Update() {
@@ -59,6 +62,13 @@ public class BasicDraw : MonoBehaviour
 
         //Sets the end of the brush stroke using the second item in the list
         lineRenderer.SetPosition(1, brushPositions[1]);
+
+        //Allows the emission property to be settable
+        lineRenderer.material.EnableKeyword("_EMISSION");
+
+        //Changes the emission color to the currently selected color
+        lineRenderer.material.SetColor("_EmissionColor", colorController.getCurrentColor());
+               
     }
 
     //Adds new points so a line can be created

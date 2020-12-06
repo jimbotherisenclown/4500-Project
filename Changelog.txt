@@ -1,0 +1,23 @@
+Sidepanel has been changed:
+	Buttons have been moved and resized.
+	Fill tool and Color Picker have been removed.
+	Circle tool works.
+
+Line, circle, and square tools generate objects dynamically and finalize them when mouse button is pressed. 
+
+Color Panel added at top. Current selection is 15 preset colors.
+	Sprites fully developed for all color toggles.
+
+Border Panels added that obfuscate any lines drawn behind them.
+
+Timer Panel added
+	Sprite added
+	Wording on timer changed to be better justified
+
+Text panel added
+	Sprite added
+	Sample text added to show how much can fit in the text field
+
+Text for testing input has been disabled. Use Debug.Log() instead when possible.
+
+Spent a bit of time trying to get custom cursors enabled when on the canvas. Not a big priority, so when I couldn't get it, I dropped it for now. Code remains in project for future development.
