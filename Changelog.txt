@@ -14,9 +14,12 @@ Timer Panel added
 	Sprite added
 	Wording on timer changed to be better justified
 
-Text panel added
+Drawing Tips panel added
 	Sprite added
 	Sample text added to show how much can fit in the text field
+
+Options Button Added
+	Clickable, but no option menu has been implemented yet
 
 Text for testing input has been disabled. Use Debug.Log() instead when possible.
 
