@@ -9,9 +9,11 @@ using Photon.Chat;
 
 public class TextboxController : MonoBehaviour, IChatClientListener
 {
-    
+
     public Text drawingTips;
     ChatClient chatClient;
+    public string roomName; 
+    
     
 
 
@@ -26,7 +28,14 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         chatClient.ChatRegion = "us";
         this.chatClient.Connect("7f873d11-eec7-4421-a8dd-311e26a71171", "1", new AuthenticationValues(StaticPlayerData.username));
         Debug.Log("created chat client");
-        
+        if (NetworkController.roomName == null)
+        {
+            roomName = "Guild";
+        }
+        else
+        {
+            roomName = NetworkController.roomName;
+        }
     }
 
     
@@ -55,10 +64,10 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         this.chatClient.SetOnlineStatus(ChatUserStatus.Online, "hello");
 
         ChatChannel channel = null;
-        bool found = this.chatClient.TryGetChannel("Guild", out channel);
+        bool found = this.chatClient.TryGetChannel(NetworkController.roomName, out channel);
         if (!found)
         {
-            this.chatClient.Subscribe("Guild");
+            this.chatClient.Subscribe(NetworkController.roomName);
             Debug.Log("ShowChannel failed to find channel: " + "Guild");
             return;
         }
@@ -95,21 +104,21 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public void OnUnsubscribed(string[] channels)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnUserSubscribed(string user, string user1)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
     public void OnUserUnsubscribed(string user, string user1)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
 
