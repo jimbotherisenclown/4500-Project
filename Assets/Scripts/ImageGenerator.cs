@@ -7,29 +7,28 @@ public class ImageGenerator : MonoBehaviour
 {
     public Sprite[] images;
     public Image randomImage;
-    // Start is called before the first frame update
+    
+    // Creates a sprite arrray of 98 images
     void Start()
     {
         images = new Sprite[98];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        generateImage();
     }
 
     void generateImage()
     {
         int num;
-        //if(level difficulty == 1)
-        //{
-        // num = UnityEngine.Random.Range(65, images.Length);
-        // }else if (level difficult == 2)
-        //{
-        // num = UnityEngine.Random.Range(32, 66);
-        //}else 
-        //num = UnityEngine.Random.Range(0, 32);
+
+        //gets the level associated with each player and displays a corresponding image
+        if (StaticPlayerData.Level == 0)
+        {
+            num = UnityEngine.Random.Range(65, images.Length);
+        } else if (StaticPlayerData.Level == 1)
+        {
+            num = UnityEngine.Random.Range(32, 66);
+        } else if (StaticPlayerData.Level == 2) { 
+            num = UnityEngine.Random.Range(0, 32);
+        }
         num = UnityEngine.Random.Range(0, images.Length);
         randomImage.sprite = images[num];
     }
