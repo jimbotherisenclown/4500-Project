@@ -51,6 +51,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks
             if(room.IsOpen && room.IsVisible)
             {
                 roomAvail = true;
+                JoinARoom(room.Name);
                 break;
                 //if((room.LEVEL-user.Level) <=5 and (room.LEVEL-user.Level) >=-5
                 //then roomName = room.name
@@ -62,7 +63,10 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         }
         //if roomAvail join roomName
         //else CreateRoom()
-        CreateRoom();
+        if (!roomAvail)
+        {
+            CreateRoom();
+        }
     }
 
 
