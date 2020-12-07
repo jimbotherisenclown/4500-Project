@@ -2,35 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public static class StaticPlayerData 
 {
-    private int level;
-    private string username;
-    
-    public int Level
+    public static int level;
+    public static string username;
+
+    public static int Level
     {
         get
         {
-            //Debug.Print("Accessing level");
             return level;
         }
         set
         {
-            //Debug.Print("Writing to level");
             level = value;
         }
     }
 
-    public string Username
+    public static string Username
     {
         get
         {
-            //Debug.Print("Accessing username");
             return username;
         }
         set
         {
-            //Debug.Print("Writing to username");
             username = value;
         }
     }

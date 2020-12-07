@@ -8,14 +8,14 @@ public class DropDown : MonoBehaviour
     {
         if(value == 0)
         {
-            PlayerData.Level = 0;
+            StaticPlayerData.Level = 0;
         }else if(value == 1)
         {
-            PlayerData.Level = 1;
+            StaticPlayerData.Level = 1;
         }
         else if(value == 2)
         {
-            PlayerData.Level = 2;
+            StaticPlayerData.Level = 2;
         }
     }
 }
