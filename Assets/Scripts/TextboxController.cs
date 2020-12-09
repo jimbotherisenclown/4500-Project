@@ -12,7 +12,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public Text drawingTips;
     ChatClient chatClient;
-    public string roomName; 
+    public string roomName = "Guild"; 
     
     
 
@@ -28,7 +28,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         chatClient.ChatRegion = "us";
         this.chatClient.Connect("7f873d11-eec7-4421-a8dd-311e26a71171", "1", new AuthenticationValues(StaticPlayerData.username));
         Debug.Log("created chat client");
-        if (NetworkController.roomName == null)
+        if (roomName == "")
         {
             roomName = "Guild";
         }
@@ -47,6 +47,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
     public void setDrawingTips(string tips) {
         drawingTips.text = tips;
     }
+
     #region IChatClientListener implementation
 
     public void DebugReturn(ExitGames.Client.Photon.DebugLevel level, string message)
@@ -64,13 +65,14 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         this.chatClient.SetOnlineStatus(ChatUserStatus.Online, "hello");
 
         ChatChannel channel = null;
-        bool found = this.chatClient.TryGetChannel(NetworkController.roomName, out channel);
+        bool found = this.chatClient.TryGetChannel(roomName, out channel);
         if (!found)
         {
-            this.chatClient.Subscribe(NetworkController.roomName);
-            Debug.Log("ShowChannel failed to find channel: " + "Guild");
-            return;
+            this.chatClient.Subscribe(roomName);
+            Debug.Log("Failed to find channel: " + roomName + ". Creating now.");
+            
         }
+
     }
 
     public void OnChatStateChange(ChatState state)
@@ -84,6 +86,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         this.chatClient.TryGetChannel(channelName, out channel);
         Debug.Log(channel.ToStringMessages());
         setDrawingTips(channel.ToStringMessages());
+        //this.chatClient.PublishMessage(channelName, "connected " + Environment.TickCount%99);
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)
@@ -100,7 +103,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         {
             this.chatClient.PublishMessage(channel, "connected.");
         }
-       }
+    }
 
     public void OnUnsubscribed(string[] channels)
     {
@@ -120,8 +123,6 @@ public class TextboxController : MonoBehaviour, IChatClientListener
     {
         //throw new System.NotImplementedException();
     }
-
-
 
     #endregion
 

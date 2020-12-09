@@ -78,6 +78,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         {
             // Join the lobby to do matchmaking 
             PhotonNetwork.JoinLobby(customLobby);
+            //OnRoomListUpdate executes here
             //PhotonNetwork.JoinRandomRoom();
         }
         else
