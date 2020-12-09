@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 189862e8080bf8a429d6391aa942d909
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - drawToolPrefab: {fileID: 2051388320527656981, guid: d3519b4beaf162241a1909313d105321, type: 3}
+  - currentLine: {instanceID: 0}
+  - lineRenderer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
