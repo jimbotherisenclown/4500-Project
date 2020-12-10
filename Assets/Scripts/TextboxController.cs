@@ -12,9 +12,10 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public Text drawingTips;
     ChatClient chatClient;
-    public string roomName = "Guild"; 
-    
-    
+    public string roomName = "Guild";
+    public InputField input;
+
+
 
 
     // Start is called before the first frame update
@@ -46,6 +47,26 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public void setDrawingTips(string tips) {
         drawingTips.text = tips;
+    }
+
+    public void submit()
+    {
+        send(input.text); //need to add censor here when words arrive
+        input.text = "";
+    }
+
+    public void send(string message, string[] censor)
+    {
+        foreach (string word in censor)
+        {
+            message = message.Replace(word, "#");
+        }
+        this.chatClient.PublishMessage(roomName, message);
+    }
+
+    public void send(string message)
+    {
+        this.chatClient.PublishMessage(roomName, message);
     }
 
     #region IChatClientListener implementation

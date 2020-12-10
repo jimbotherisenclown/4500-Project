@@ -13,6 +13,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public string LEVEL;
     string[] strOpts = new string[1];
     private TypedLobby customLobby = new TypedLobby("customLobby", LobbyType.Default);
+    public bool coach = false;
 
 
 
@@ -117,6 +118,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     //create a room with the custom settings
     void CreateRoom()
     {
+        coach = true;
         strOpts[0] = LEVEL;
         int randomRoomName = Random.Range(0, 10000);
         Debug.Log("Creating a room: Room" + randomRoomName.ToString());
