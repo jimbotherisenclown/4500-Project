@@ -5,8 +5,11 @@ public class ChangeCursor : MonoBehaviour {
     public Texture2D drawTexture;
     public Texture2D mouse;
     public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;    
+    public Vector2 hotSpot = Vector2.zero;
 
+    public void Start() {
+        Cursor.SetCursor(drawTexture, hotSpot, cursorMode);
+    }
     public void SetCursorEnter() {
         Cursor.SetCursor(drawTexture, hotSpot, cursorMode);
     }
