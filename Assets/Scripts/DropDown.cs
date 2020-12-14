@@ -6,16 +6,7 @@ public class DropDown : MonoBehaviour
 {
     public void HandleInputData(int value)
     {
-        if(value == 0)
-        {
-            StaticPlayerData.Level = 0;
-        }else if(value == 1)
-        {
-            StaticPlayerData.Level = 1;
-        }
-        else if(value == 2)
-        {
-            StaticPlayerData.Level = 2;
-        }
+        PlayerPrefs.SetInt("level", value);
+        Debug.Log("Player level is " + PlayerPrefs.GetInt("level"));
     }
 }
