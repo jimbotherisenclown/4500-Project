@@ -14,6 +14,65 @@ public class TextboxController : MonoBehaviour, IChatClientListener
     ChatClient chatClient;
     public string roomName = NetworkController.roomName;
     public InputField input;
+    public bool voiceEn = false;
+
+    Dictionary<string, string[]> censor = new Dictionary<string, string[]>
+    {
+        {"apple", new string[] {"apple", "fruit", "stem", "worm", "core", "keep the doctor away"}},
+        {"banana", new string[] {"banana", "fruit", "monkey", "peel"}},
+        {"bandAid", new string[] {"band-aid", "bandage", "tape", "adhesive"}},
+        {"basketball", new string[] {"basketball", "hoops", "b-ball", "sport", "round ball", "ball"}},
+        {"bee", new string[] {"bee", "yellow jackets", "honey", "buzz", "stinger", "stripes", "hive"}},
+        {"beehive", new string[] {"beehive", "Beyonce", "nest", "honey", "buzzing"}},
+        {"bucket", new string[] {"bucket", "pail", "handle", "pitcher", "vessel"}},
+        {"butterfly", new string[] {"butterfly", "caterpillar", "monarch", "wings"}},
+        {"candle", new string[] {"candle", "wax", "wick", "lamp", "light", "beacon", "lantern", "candelabra"}},
+        {"carrot", new string[] {"carrot", "bunny", "bunnnies", "veggie", "vegetable" }},
+        {"christmasTree", new string[] {"christmas tree", "tree", "x-mas"}},
+        {"clock", new string[] {"clock", "timepiece", "timekeeper", "timer", "chronograph", "dial", "numbers", "o'clock"}},
+        {"coffeeCup", new string[] {"coffee cup", "java", "mug", "steam", "saucer"}},
+        {"fence", new string[] {"fence", "barrier", "wall", "partition", "enclosure", "border"}},
+        {"fish ", new string[] {"fish", "angle", "bob", "cast", "chum", "trawl"}},
+        {"flag", new string[] {"flag", "banner", "symbol", "pennant", "streamer", "country"}},
+        {"flashlight", new string[] {"flashlight", "electric lantern", "flash lamp", "spotlight", "streamlight"}},
+        {"flower", new string[] {"flower", "spring", "bloom", "blossom"}},
+        {"ghost", new string[] {"ghost", "ghoul", "wraith", "halloween", "Casper"}},
+        {"house", new string[] {"home", "homestead", "habitation", "residence", "abode", "house", "domicile", "door"}},
+        {"lamp", new string[] {"lamp", "light", "beacon", "lantern", "candelabra"}},
+        {"lightBulb", new string[] {"light bulb", "lighting", "electric", "lamp"}},
+        {"lemon", new string[] {"lemon", "lemonade"}},
+        {"milkCarton", new string[] {"milk carton", "milk", "vitamin D", "calcium", "missing"}},
+        {"mountain", new string[] {"mountain", "peak", "mountaintop", "alp", "elevation", "summit", "range", "ridge"}},
+        {"mountains", new string[] {"mountain", "peak", "mountaintop", "alp", "elevation", "summit", "range", "ridge"}},
+        {"ornament", new string[] {"ornament", "christmas", "decoration", "trinket"}},
+        {"pants", new string[] {"pants", "trousers", "slacks", "jeans", "clothing", "clothes"}},
+        {"peeledBanana", new string[] {"peeled banana", "banana", "fruit", "monkey", "peel"}},
+        {"paintBrush", new string[] {"paint brush", "paintbrush", "paint", "brush"}},
+        {"pencil", new string[] {"pencil", "write", "note", "scribble", "take down", "inscribe"}},
+        {"pizza", new string[] {"pizza", "pie", "slice", "pizzeria", "italian food"}},
+        {"pointyFlower", new string[] {"flower", "pointy flower", "bloom", "blossom"}},
+        {"popcorn", new string[] {"popcorn", "movies", "butter", "corn"}},
+        {"pumpkin", new string[] {"pumpkin", "october", "jack-o-lantern", "halloween", "pie"}},
+        {"road", new string[] {"road", "boulevard", "course", "highway", "roadway", "pavement", "drive", "lane", "route"}},
+        {"shirt", new string[] {"shirt", "blouse", "jersey", "pullover", "tunic", "pullover", "clothing"}},
+        {"shoe", new string[] {"shoe", "sneaker", "boot", "feet", "loafer", "slipper", "moccasin"}},
+        {"smileyFace", new string[] {"smiley face", "emoji", "smiling", "grin", "smiley"}},
+        {"snowman", new string[] {"snowman", "jack frost", "Olaf", "christmas", "snow"}},
+        {"spoon", new string[] {"spoon", "scoop", "lade", "ladle", "utensil"}},
+        {"stopSign", new string[] {"stop sign", "red octogan", "traffic", "signal"}},
+        {"strawberry", new string[] {"strawberry", "seeds", "fruit"}},
+        {"sun", new string[] {"sun", "sunshine", "sunlight", "daylight", "light", "warmth", "beams", "rays"}},
+        {"tomato", new string[] {"tomato", "vegetable", "fruit"}},
+        {"trafficLight", new string[] {"traffic light", "traffic", "red light", "stoplight", "traffic control", "yellow light", "amber light", "caution light", "go light", "green light"}},
+        {"tree", new string[] {"tree", "forest", "sapling", "shrub", "timber", "wood", "woods", "stump"}},
+        { "vase", new string[] {"vase", "decor", "pottery", "flower holder","urn"}},
+        {"watch", new string[] {"watch", "timepiece", "timekeeper", "timer", "chronograph"}},
+        {"water", new string[] {"water", "h2o", "glass", "cup", "aqua"}},
+        {"watermelon", new string[] {"watermelon", "fruit", "seed"}},
+        {"wave", new string[] {"wave", "water", "ripple", "ocean", "tide"}},
+        {"window", new string[] {"window", "casment", "opening", "aperture", "bow", "bay"} }
+    };
+
 
 
 
@@ -27,9 +86,9 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         drawingTips.text = "Waiting on drawing tips!";
         chatClient = new ChatClient(this);
         chatClient.ChatRegion = "us";
-        this.chatClient.Connect("7f873d11-eec7-4421-a8dd-311e26a71171", "1", new AuthenticationValues(StaticPlayerData.username));
+        this.chatClient.Connect("7f873d11-eec7-4421-a8dd-311e26a71171", "1", new AuthenticationValues(NetworkController.username));
         Debug.Log("created chat client");
-        if (roomName == "")
+        if (NetworkController.roomName == null)
         {
             roomName = "Guild";
         }
@@ -43,6 +102,16 @@ public class TextboxController : MonoBehaviour, IChatClientListener
     // Update is called once per frame
     void Update() {  
         this.chatClient.Service();
+        if ((GameController.currentPhase == 2) && !voiceEn && NetworkController.coach)
+        {
+            send("voice connected");
+            voiceEn = true;
+        }
+        if ((GameController.currentPhase == 4) && voiceEn && NetworkController.coach)
+        {
+            send("voice disconnected");
+            voiceEn = false;
+        }
     }
 
     public void setDrawingTips(string tips) {
@@ -51,7 +120,15 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public void submit()
     {
-        send(input.text); //need to add censor here when words arrive
+        if (censor.ContainsKey(ImageGenerator.image[ImageGenerator.num].name))
+        {
+            send(input.text, censor[ImageGenerator.image[ImageGenerator.num].name]);
+        }
+        else
+        {
+            send(input.text);
+        }
+        
         input.text = "";
     }
 
@@ -93,6 +170,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
             Debug.Log("Failed to find channel: " + roomName + ". Creating now.");
             
         }
+        this.chatClient.PublishMessage(roomName, "connected.");
 
     }
 
@@ -122,7 +200,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
     {
         foreach (string channel in channels)
         {
-            this.chatClient.PublishMessage(channel, "connected.");
+            //this.chatClient.PublishMessage(channel, "connected.");
         }
     }
 

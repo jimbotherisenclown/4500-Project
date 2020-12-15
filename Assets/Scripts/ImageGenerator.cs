@@ -5,31 +5,42 @@ using UnityEngine.UI;
 
 public class ImageGenerator : MonoBehaviour
 {
-    public Sprite[] images = new Sprite[98];
+    public Sprite[] images = new Sprite[99];
+    public static Sprite[] image = new Sprite[99];
     public Image randomImage;
+    public static int num;
     
     // Creates a sprite arrray of 98 images
     void Start()
     {
         randomImage = gameObject.GetComponent<Image>();
+        image = images;
         generateImage();
     }
 
     void generateImage()
     {
-        int num;
 
         //gets the level associated with each player and displays a corresponding image
         if (StaticPlayerData.Level == 0)
         {
-            num = UnityEngine.Random.Range(65, images.Length);
+            num = UnityEngine.Random.Range(0, 32);
         } else if (StaticPlayerData.Level == 1)
         {
             num = UnityEngine.Random.Range(32, 66);
         } else if (StaticPlayerData.Level == 2) { 
-            num = UnityEngine.Random.Range(0, 32);
+            num = UnityEngine.Random.Range(32, images.Length-1);
         }
-        num = UnityEngine.Random.Range(0, images.Length);
+        if ((NetworkController.LEVEL != null) && (NetworkController.LEVEL != 0))
+        {
+            num = UnityEngine.Random.Range(0, NetworkController.LEVEL);
+        }
+        else
+        {
+            num = UnityEngine.Random.Range(0, images.Length-1);
+
+        }
+        Debug.Log(num);
         randomImage.sprite = images[num];
     }
 }

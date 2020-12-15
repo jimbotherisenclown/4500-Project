@@ -8,10 +8,10 @@ public class GameController : MonoBehaviour
     private float timer; //Holds the current time since scene was loaded
     private int displayedTime; //Holds the integer rounded value of the timer, which is to be passed to timerText via ToString()
     public Text timerText; //This is the Unity Text object used to display the timer value..
-    int currentPhase; //Holds the integer value of the current phase.
+    public static int currentPhase; //Holds the integer value of the current phase.
 
     /*vvv CHANGE THESE VALUES TO CHANGE THE GAME TIME vvv*/
-    const int phase2Threshold = 90; //Time from start of game until Phase 2 begins
+    const int phase2Threshold = 9; //Time from start of game until Phase 2 begins
     const int phase3Threshold = 180; //Time from start of game until Phase 3 begins
     const int gameOverThreshold = 270; //Time from start of game until game ends.
     /*^^^ CHANGE THESE VALUES TO CHANGE THE GAME TIME ^^^*/

@@ -6,6 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Voice.Unity;
 
 
 public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, IConnectionCallbacks, IMatchmakingCallbacks
@@ -19,7 +20,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
     public static int LEVEL;
     string[] strOpts = new string[1];
     private TypedLobby customLobby = new TypedLobby("customLobby", LobbyType.Default);
-    public bool coach = false;
+    public static bool coach = false;
     public TMPro.TMP_Dropdown dropdown;
     public InputField input;
     public static string username;
@@ -77,6 +78,9 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
             if (LEVEL > 98)
             {
                 LEVEL = 98;
+            }else if(LEVEL < 10)
+            {
+                LEVEL = 10;
             }
         }
         Debug.Log(LEVEL);
@@ -85,7 +89,6 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
     public override void OnConnectedToMaster()
     {
         Debug.Log("We are now connected to the " + PhotonNetwork.CloudRegion + " server!");
-        //Connect();
     }
 
     //connect to lobby when start is pressed
@@ -102,7 +105,6 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
         Debug.Log(username);
         setLevel(0);
         Connect();
-        voiceConnection.ConnectUsingSettings();
     }
 
     //this is where matchmaking would be done if PUN was well enough documented
@@ -179,7 +181,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
     public override void OnJoinedRoom()
     {
         Debug.Log("Join Room called by PUN. Now this client is in a room." + roomName);
-        voiceConnection.PrimaryRecorder.TransmitEnabled = true;
+        //joinVoice();
 
         if (coach)
         {
@@ -191,7 +193,19 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
         }
     }
 
-
+    void joinVoice()
+    {
+        EnterRoomParams Roomoptions = new EnterRoomParams();
+        Roomoptions.RoomName = roomName + "voice";
+        voiceConnection.ConnectUsingSettings();
+        voiceConnection.Client.OpJoinOrCreateRoom(Roomoptions);
+        Debug.Log("join voice room");
+        if (voiceConnection.PrimaryRecorder == null)
+        {
+            voiceConnection.PrimaryRecorder = this.gameObject.AddComponent<Recorder>();
+        }
+        voiceConnection.PrimaryRecorder.TransmitEnabled = true;
+    }
 
 
     //used to join a room after one is picked
