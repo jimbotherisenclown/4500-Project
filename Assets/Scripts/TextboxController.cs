@@ -12,7 +12,7 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     public Text drawingTips;
     ChatClient chatClient;
-    public string roomName = "Guild";
+    public string roomName = NetworkController.roomName;
     public InputField input;
 
 
@@ -20,9 +20,9 @@ public class TextboxController : MonoBehaviour, IChatClientListener
 
     // Start is called before the first frame update
     void Start() {
-        if (StaticPlayerData.username == null)
+        if (NetworkController.username == null)
         {
-            StaticPlayerData.username = "user" + Environment.TickCount%99;
+            NetworkController.username = "user" + Environment.TickCount%99;
         }
         drawingTips.text = "Waiting on drawing tips!";
         chatClient = new ChatClient(this);
