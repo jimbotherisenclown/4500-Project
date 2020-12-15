@@ -9,7 +9,8 @@ public class ImageGenerator : MonoBehaviour
     public static Sprite[] image = new Sprite[99];
     public Image randomImage;
     public static int num;
-    
+
+       
     // Creates a sprite arrray of 98 images
     void Start()
     {
@@ -20,7 +21,6 @@ public class ImageGenerator : MonoBehaviour
 
     void generateImage()
     {
-
         //gets the level associated with each player and displays a corresponding image
         if (StaticPlayerData.Level == 0)
         {
