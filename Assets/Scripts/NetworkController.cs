@@ -62,15 +62,15 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
             Debug.Log(lvl);
             if (lvl == 0)
             {
-                LEVEL = 20;
+                LEVEL = 16;
             }
             else if (lvl == 2)
             {
-                LEVEL = 70;
+                LEVEL = 81;
             }
             else
             {
-                LEVEL = 50;
+                LEVEL = 47;
             }
         }
         else
@@ -94,7 +94,7 @@ public class NetworkController : MonoBehaviourPunCallbacks, ILobbyCallbacks, ICo
     //connect to lobby when start is pressed
     public void StartButton()
     {
-        if(input.text != null)
+        if((input.text != null) || (input.text == ""))
         {
             username = input.text;
         }

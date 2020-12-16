@@ -31,14 +31,18 @@ public class ImageGenerator : MonoBehaviour
         } else if (StaticPlayerData.Level == 2) { 
             num = UnityEngine.Random.Range(32, images.Length-1);
         }
-        if ((NetworkController.LEVEL != null) && (NetworkController.LEVEL != 0))
+        if ((NetworkController.LEVEL <= 32))
         {
-            num = UnityEngine.Random.Range(0, NetworkController.LEVEL);
+            num = UnityEngine.Random.Range(0, 32);
+        }
+        else if (NetworkController.LEVEL >= 33 || NetworkController.LEVEL <= 65)
+        {
+            num = UnityEngine.Random.Range(33, 65);
+
         }
         else
         {
-            num = UnityEngine.Random.Range(0, images.Length-1);
-
+            num = UnityEngine.Random.Range(66, images.Length-1);
         }
         Debug.Log(num);
         randomImage.sprite = images[num];
