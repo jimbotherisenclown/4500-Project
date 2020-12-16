@@ -156,12 +156,7 @@ public class ScreenShare : MonoBehaviour
         
         //Configure the external video source
         mRtcEngine.SetExternalVideoSource(true, false);
-        // Start video mode
-        mRtcEngine.EnableVideo();
-        // allow camera output callback
-        mRtcEngine.EnableVideoObserver();
-        // join channel
-        mRtcEngine.JoinChannel(channelName, null, 0);
+        
         //Create a rectangle width and height of the screen
         mRect = new Rect(0, 0, Screen.width-1, Screen.height-1);
         //Create a texture the size of the rectangle you just created
@@ -189,6 +184,49 @@ public class ScreenShare : MonoBehaviour
     public void joinChannel(string channelName)
     {
         Debug.Log("joining channel: " + channelName);
+        if (mRtcEngine == null)
+        {
+            Debug.Log("engine needs to be started first.");
+            loadEngine();
+        }
+        //callbacks
+        mRtcEngine.OnJoinChannelSuccess = onJoinChannelSuccess;
+
+        // Start video mode
+        mRtcEngine.EnableVideo();
+        // allow camera output callback
+        mRtcEngine.EnableVideoObserver();
+        // join channel
+        mRtcEngine.JoinChannel(channelName, null, 0);
+    }
+
+    private void onJoinChannelSuccess(string channelName, uint uid, int elapsed)
+    {
+        Debug.Log("successfully joined channel")
+    }
+
+    public void leaveChannel()
+    {
+        Debug.Log("leaving channel");
+        if (mRtcEngine == null)
+        {
+            Debug.Log("engine needs to be started first.");
+            loadEngine();
+        }
+        mRtcEngine.LeaveChannel();
+        mRtcEngine.DisableVideoObserver();
+    }
+
+    public void unloadEngine()
+    {
+        Debug.Log("unloading agora engine.");
+        if (mRtcEngine != null)
+        {   
+            IRtcEngine.Destroy();
+            mRtcEngine = null;
+        }
+        
+
     }
 
 
