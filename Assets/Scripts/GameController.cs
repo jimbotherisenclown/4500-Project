@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public static int currentPhase; //Holds the integer value of the current phase.
 
     /*vvv CHANGE THESE VALUES TO CHANGE THE GAME TIME vvv*/
-    const int phase2Threshold = 9; //Time from start of game until Phase 2 begins
+    const int phase2Threshold = 90; //Time from start of game until Phase 2 begins
     const int phase3Threshold = 180; //Time from start of game until Phase 3 begins
     const int gameOverThreshold = 270; //Time from start of game until game ends.
     /*^^^ CHANGE THESE VALUES TO CHANGE THE GAME TIME ^^^*/

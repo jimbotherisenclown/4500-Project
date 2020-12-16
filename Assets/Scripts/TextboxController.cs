@@ -104,12 +104,12 @@ public class TextboxController : MonoBehaviour, IChatClientListener
         this.chatClient.Service();
         if ((GameController.currentPhase == 2) && !voiceEn && NetworkController.coach)
         {
-            send("voice connected");
+            Debug.Log("voice connected");
             voiceEn = true;
         }
         if ((GameController.currentPhase == 4) && voiceEn && NetworkController.coach)
         {
-            send("voice disconnected");
+            Debug.Log("voice disconnected");
             voiceEn = false;
         }
     }
@@ -170,7 +170,10 @@ public class TextboxController : MonoBehaviour, IChatClientListener
             Debug.Log("Failed to find channel: " + roomName + ". Creating now.");
             
         }
-        this.chatClient.PublishMessage(roomName, "connected.");
+        if (!NetworkController.coach)
+        {
+            this.chatClient.PublishMessage(roomName, "connected.");
+        }
 
     }
 
