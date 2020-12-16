@@ -1648,6 +1648,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286841844}
   m_CullTransparentMesh: 0
+--- !u!1 &287917130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287917132}
+  - component: {fileID: 287917131}
+  m_Layer: 0
+  m_Name: Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &287917131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287917130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ef2dbcad77cc546a246dd64c4602bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appId: c391473e2bff4f92b41cb1ce291ee8de
+  channelName: agora
+--- !u!4 &287917132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287917130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 287.2094, y: 148.98515, z: -10.993895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &293697442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,8 +2785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomRoom: 0
+  VoiceStart: 3
+  VoiceEnd: 4
   autoConnect: 1
-  autoTransmit: 0
   publishUserId: 0
   voiceEn: 0
   RoomName: 
@@ -6083,7 +6129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I'M NOT COOL!
+  m_Text: I'M NOT!
 --- !u!222 &1298957524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6979,7 +7025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1429669976
 Transform:
   m_ObjectHideFlags: 0
@@ -9221,7 +9267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2063706455
 Transform:
   m_ObjectHideFlags: 0

@@ -38,13 +38,12 @@ public class ImageGenerator : MonoBehaviour
         else if (NetworkController.LEVEL >= 33 || NetworkController.LEVEL <= 65)
         {
             num = UnityEngine.Random.Range(33, 65);
-
         }
         else
         {
             num = UnityEngine.Random.Range(66, images.Length-1);
         }
-        Debug.Log(num);
+        Debug.Log(images[num].name + "" + num);
         randomImage.sprite = images[num];
     }
 }

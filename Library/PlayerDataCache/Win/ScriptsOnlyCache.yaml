@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BasicDraw
+    - ButtonHandler
     - ButtonTester
     - ChangeColor
     - ChangeName
@@ -55,10 +56,13 @@ ScriptsOnlyBuild:
     - ProximityVoiceTrigger
     - RectangleScript
     - SaveName
+    - ScreenShare
     - SetRankings
     - Sorter
     - SuperBasicController
+    - TestHome
     - TextboxController
+    - agora_gaming_rtc.VideoSurface
     - emotitron.TestPackObject
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -125,6 +129,136 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.ToggleGroup
   sceneClasses:
+    Assets/AgoraEngine/Demo/SceneHelloVideo.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11904}
+    - Class: 114
+      Script: {instanceID: 11906}
+    - Class: 114
+      Script: {instanceID: 11910}
+    - Class: 114
+      Script: {instanceID: 12406}
+    - Class: 114
+      Script: {instanceID: 13250}
+    - Class: 114
+      Script: {instanceID: 15212}
+    - Class: 114
+      Script: {instanceID: 15432}
+    - Class: 114
+      Script: {instanceID: 16014}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    Assets/AgoraEngine/Demo/SceneHome.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11904}
+    - Class: 114
+      Script: {instanceID: 11906}
+    - Class: 114
+      Script: {instanceID: 11910}
+    - Class: 114
+      Script: {instanceID: 12406}
+    - Class: 114
+      Script: {instanceID: 13250}
+    - Class: 114
+      Script: {instanceID: 14576}
+    - Class: 114
+      Script: {instanceID: 14740}
+    - Class: 114
+      Script: {instanceID: 15212}
+    - Class: 114
+      Script: {instanceID: 15432}
+    - Class: 114
+      Script: {instanceID: 16014}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
     Assets/Scenes/BlankCanvas.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -175,6 +309,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14256}
     - Class: 114
+      Script: {instanceID: 14484}
+    - Class: 114
       Script: {instanceID: 14626}
     - Class: 114
       Script: {instanceID: 14700}
@@ -187,17 +323,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15274}
     - Class: 114
-      Script: {instanceID: 15350}
+      Script: {instanceID: 15336}
     - Class: 114
-      Script: {instanceID: 15626}
+      Script: {instanceID: 15352}
     - Class: 114
-      Script: {instanceID: 15858}
+      Script: {instanceID: 15628}
     - Class: 114
-      Script: {instanceID: 16012}
+      Script: {instanceID: 15860}
     - Class: 114
-      Script: {instanceID: 16034}
+      Script: {instanceID: 16014}
     - Class: 114
-      Script: {instanceID: 16106}
+      Script: {instanceID: 16036}
+    - Class: 114
+      Script: {instanceID: 16108}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -262,6 +400,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14032}
     - Class: 114
+      Script: {instanceID: 14484}
+    - Class: 114
       Script: {instanceID: 14576}
     - Class: 114
       Script: {instanceID: 14626}
@@ -276,17 +416,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15274}
     - Class: 114
-      Script: {instanceID: 15350}
+      Script: {instanceID: 15352}
     - Class: 114
-      Script: {instanceID: 15626}
+      Script: {instanceID: 15628}
     - Class: 114
-      Script: {instanceID: 15858}
+      Script: {instanceID: 15860}
     - Class: 114
-      Script: {instanceID: 15970}
+      Script: {instanceID: 15972}
     - Class: 114
-      Script: {instanceID: 16012}
+      Script: {instanceID: 16014}
     - Class: 114
-      Script: {instanceID: 16034}
+      Script: {instanceID: 16036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -489,37 +629,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15312}
     - Class: 114
-      Script: {instanceID: 15350}
+      Script: {instanceID: 15352}
     - Class: 114
-      Script: {instanceID: 15564}
+      Script: {instanceID: 15566}
     - Class: 114
-      Script: {instanceID: 15580}
+      Script: {instanceID: 15582}
     - Class: 114
-      Script: {instanceID: 15628}
+      Script: {instanceID: 15630}
     - Class: 114
-      Script: {instanceID: 15692}
+      Script: {instanceID: 15694}
     - Class: 114
-      Script: {instanceID: 15696}
+      Script: {instanceID: 15698}
     - Class: 114
-      Script: {instanceID: 15778}
+      Script: {instanceID: 15780}
     - Class: 114
-      Script: {instanceID: 15824}
+      Script: {instanceID: 15826}
     - Class: 114
-      Script: {instanceID: 15850}
+      Script: {instanceID: 15852}
     - Class: 114
-      Script: {instanceID: 15868}
+      Script: {instanceID: 15870}
     - Class: 114
-      Script: {instanceID: 16012}
-    - Class: 114
-      Script: {instanceID: 16032}
+      Script: {instanceID: 16014}
     - Class: 114
       Script: {instanceID: 16034}
     - Class: 114
       Script: {instanceID: 16036}
     - Class: 114
-      Script: {instanceID: 16060}
+      Script: {instanceID: 16038}
     - Class: 114
-      Script: {instanceID: 16104}
+      Script: {instanceID: 16062}
+    - Class: 114
+      Script: {instanceID: 16106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -2365,6 +2505,12 @@ ScriptsOnlyBuild:
     className: TextMeshSpawner
   - hash:
       serializedVersion: 2
+      Hash: 10675f8d0224cf0d04e1caf67c194cd0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScreenShare
+  - hash:
+      serializedVersion: 2
       Hash: ab4da2c56541437e987bd5a68be64b75
     assemblyName: PhotonVoice.PUN.dll
     namespaceName: Photon.Voice.PUN
@@ -2873,15 +3019,11 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 10675f8d0224cf0d04e1caf67c194cd0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ScreenShare
   platform: 5
   scenePathNames:
   - Assets/Scenes/GameIntro.unity
   - Assets/Scenes/BlankCanvas.unity
   - Assets/Scenes/CommunicationCenter.unity
+  - Assets/AgoraEngine/Demo/SceneHome.unity
+  - Assets/AgoraEngine/Demo/SceneHelloVideo.unity
   playerPath: C:/Users/logan/Documents/GitHub/Build/4500 Project.exe
