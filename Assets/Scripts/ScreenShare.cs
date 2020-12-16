@@ -202,7 +202,7 @@ public class ScreenShare : MonoBehaviour
 
     private void onJoinChannelSuccess(string channelName, uint uid, int elapsed)
     {
-        Debug.Log("successfully joined channel")
+        Debug.Log("successfully joined channel");
     }
 
     public void leaveChannel()

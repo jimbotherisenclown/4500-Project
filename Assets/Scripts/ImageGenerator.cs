@@ -9,6 +9,7 @@ public class ImageGenerator : MonoBehaviour
     public static Sprite[] image = new Sprite[99];
     public Image randomImage;
     public static int num;
+    public static Sprite randomSprite;
 
        
     // Creates a sprite arrray of 98 images
@@ -45,5 +46,7 @@ public class ImageGenerator : MonoBehaviour
         }
         Debug.Log(images[num].name + "" + num);
         randomImage.sprite = images[num];
+
+        randomSprite = images[num];
     }
 }
