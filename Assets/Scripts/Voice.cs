@@ -23,6 +23,8 @@ namespace Photon.Voice.Unity.UtilityScripts
         private VoiceConnection voiceConnection;
 
         public bool RandomRoom = true;
+        public int VoiceStart = 3;
+        public int VoiceEnd = 4;
 
         [SerializeField]
         private bool autoConnect = true;
@@ -120,11 +122,11 @@ namespace Photon.Voice.Unity.UtilityScripts
         void Update()
         {
 
-            if((GameController.currentPhase == 2) && !voiceEn)
+            if((GameController.currentPhase == VoiceStart) && !voiceEn)
             {
                 toggle(true);
             }
-            if((GameController.currentPhase == 4) && voiceEn)
+            if((GameController.currentPhase == VoiceEnd) && voiceEn)
             {
                 toggle(false);
             }
