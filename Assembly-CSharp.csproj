@@ -144,6 +144,7 @@
      <Compile Include="Assets\Photon\Simple\Components\ContactSystems\SyncShoot\SyncCannon.cs" />
      <Compile Include="Assets\Photon\PhotonUtilities\TransformCrusher\QuatCrusher.cs" />
      <Compile Include="Assets\Photon\PhotonUtilities\PackObject\Attributes\SyncIntAttribute.cs" />
+     <Compile Include="Assets\Scripts\DisableText.cs" />
      <Compile Include="Assets\Scripts\NameTransfer.cs" />
      <Compile Include="Assets\AgoraEngine\Demo\TestHelloUnityVideo.cs" />
      <Compile Include="Assets\Scripts\Surface.cs" />
@@ -151,6 +152,7 @@
      <Compile Include="Assets\Photon\Simple\Utilities\GUITools\ShowIfInterfaceAttribute.cs" />
      <Compile Include="Assets\Photon\Simple\Components\ContactSystems\SyncVitals\VitalsContactReactor.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\Networking\NetworkHit.cs" />
+     <Compile Include="Assets\Scripts\GetRandomImage.cs" />
      <Compile Include="Assets\Photon\Simple\Components\SyncOculus\Assistants\OculusAssist.cs" />
      <Compile Include="Assets\Scripts\SetRankings.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\Collider\CollideType.cs" />
@@ -172,6 +174,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\Networking\NetworkHits.cs" />
      <Compile Include="Assets\Photon\Simple\Example\Scripts\TestPackObject.cs" />
+     <Compile Include="Assets\Scenes\TakeShot1.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Photon\Simple\Components\SyncState\TeleportMarker.cs" />
      <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\Joystick.cs" />
@@ -201,6 +204,7 @@
      <Compile Include="Assets\Photon\Simple\Components\SyncState\AutoMountHitscan.cs" />
      <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\videoRender\VideoRender.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\ContactGroups\ContactGroupMaskSelector.cs" />
+     <Compile Include="Assets\Scripts\Scripts Not In Use\ScreenshotHandler.cs" />
      <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\SmartVars\SmartVars.cs" />
      <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
@@ -246,8 +250,10 @@
      <Compile Include="Assets\Photon\Simple\Core\Extensions\NetObjColliderExt.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\GhostWorld\Haunted.cs" />
      <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AudioEffectManager.cs" />
+     <Compile Include="Assets\Scripts\LoadScreenshot.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\Photon\Simple\Components\Assistants\UtilityAssists.cs" />
+     <Compile Include="Assets\Scripts\Scripts Not In Use\TakeScreenshot.cs" />
      <Compile Include="Assets\Photon\Simple\Components\SyncState\SyncSpawnTimer.cs" />
      <Compile Include="Assets\Scripts\BasicDraw.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\Component\CopyComponent.cs" />
@@ -255,6 +261,7 @@
      <Compile Include="Assets\Scripts\ButtonController.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\GUITools\CustomMaskEditors\MaskLogic.cs" />
      <Compile Include="Assets\Photon\Simple\Components\SyncOculus\SimpleOculusAutomation.cs" />
+     <Compile Include="Assets\Scripts\Scripts Not In Use\GetScreenshot.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\Networking\NetAdapters\NetMsgSends.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\GUITools\EnumMaskAttribute.cs" />
@@ -316,6 +323,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\Photon\Simple\Core\Structs\FrameBase.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\GUITools\ValueTypeAttribute.cs" />
+     <Compile Include="Assets\Scripts\TakeShot.cs" />
      <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AgoraCallback.cs" />
      <Compile Include="Assets\Photon\Simple\Components\ContactSystems\SyncVitals\Interfaces\IVitalsContactReactor.cs" />
      <Compile Include="Assets\Photon\PhotonUtilities\TransformCrusher\WorldBounds\WorldBoundsGroup.cs" />
@@ -411,11 +419,12 @@
      <Compile Include="Assets\Scripts\ChangeCursor.cs" />
      <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\observer\MetaDataObserver.cs" />
      <Compile Include="Assets\Photon\Simple\Components\Assistants\SyncTransformAssists.cs" />
+     <Compile Include="Assets\Scripts\CaptureScreen.cs" />
      <Compile Include="Assets\Photon\Simple\Example\Scripts\SuperBasicController.cs" />
      <Compile Include="Assets\Photon\Simple\Core\GenericHitscan\HitscanComponent.cs" />
      <Compile Include="Assets\Photon\Simple\Components\SyncState\Enums\ObjState.cs" />
      <Compile Include="Assets\Photon\Simple\Utilities\GhostWorld\HauntedStatic.cs" />
-     <Compile Include="Assets\GetRandomImage.cs" />
+     <Compile Include="Assets\LoadScreenshot1.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
